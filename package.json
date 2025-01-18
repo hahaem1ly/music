@@ -4,10 +4,12 @@
   "description": "this is my priejct tesitng out spotify web api",
   "main": "index.js",
   "scripts": {
-  "test": "echo \"No tests yet\" && exit 0"
-}
-,
+    "test": "jest"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
