@@ -29,3 +29,26 @@ const getAccessToken = async () => {
     const accessToken = await getAccessToken();
     console.log('Access Token:', accessToken);
 })();
+
+
+const getTopTracks = async (accessToken) => {
+    try {
+        const response = await axios.get('https://api.spotify.com/v1/me/top/tracks', {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        return response.data.items;
+    } catch (error) {
+        console.error('Error fetching top tracks:', error.response.data);
+    }
+};
+
+// Test the function
+(async () => {
+    const accessToken = await getAccessToken();
+    console.log('Access Token:', accessToken);
+
+    const topTracks = await getTopTracks(accessToken);
+    console.log('Top Tracks:', topTracks);
+})();
