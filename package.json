@@ -1,0 +1,13 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "description": "this is my priejct tesitng out spotify web api",
+  "main": "index.js",
+  "scripts": {
+  "test": "echo \"No tests yet\" && exit 0"
+}
+,
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
