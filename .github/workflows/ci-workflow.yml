@@ -34,10 +34,10 @@ jobs:
           node-version: 16
 
       - name: Install Dependencies
-        run: npm install
+        run: cd frontend && npm install
 
       - name: Run Linter
-        run: npm run lint
+        run: cd frontend && npm run lint
 
   test:
     name: Run Tests
@@ -52,10 +52,10 @@ jobs:
           node-version: 16
 
       - name: Install Dependencies
-        run: npm install
+        run: cd frontend && npm install
 
       - name: Run Tests
-        run: npm test
+        run: cd frontend && npm test
 
   build:
     name: Build Application
@@ -70,10 +70,10 @@ jobs:
           node-version: 16
 
       - name: Install Dependencies
-        run: npm install
+        run: cd frontend && npm install
 
       - name: Build App
-        run: npm run build
+        run: cd frontend && npm run build
 
   deploy:
     name: Deploy to GitHub Pages
@@ -89,10 +89,10 @@ jobs:
           node-version: 16
 
       - name: Install Dependencies
-        run: npm install
+        run: cd frontend && npm install
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: frontend/dist
