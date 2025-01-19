@@ -1,37 +1,33 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import Callback from './Callback';
-import Dashboard from './Dashboard';
+import React from "react";
+import "./styles.css";
 
-const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${import.meta.env.VITE_SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(import.meta.env.VITE_REDIRECT_URI)}&scope=user-top-read`;
+const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${import.meta.env.VITE_SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(import.meta.env.VITE_REDIRECT_URI)}&scope=user-read-private%20user-read-email%20user-top-read`;
 
 function App() {
-    const [token, setToken] = useState(null);
-
     return (
-        <Router>
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <div>
-                            <h1>Spotify Stats Dashboard</h1>
-                            <a href={AUTH_URL}>
-                                <button>Login with Spotify</button>
-                            </a>
-                        </div>
-                    }
+        <div className="vinyl-container">
+            {/* Spinning Vinyl */}
+            <div className="vinyl-wrapper">
+                <img
+                    src="./img/vinyl.png"
+                    alt="Vinyl Record"
+                    className="vinyl"
                 />
-                <Route
-                    path="/callback"
-                    element={<Callback setToken={setToken} />}
-                />
-                <Route
-                    path="/dashboard"
-                    element={<Dashboard token={token} />}
-                />
-            </Routes>
-        </Router>
+            </div>
+
+            {/* Content */}
+            <div className="content">
+                <h1 className="title">
+                    Discover Your <span className="highlight">Music</span>
+                </h1>
+                <p className="subtitle">
+                    Dive into your Spotify stats and favorite tracks.
+                </p>
+                <a href={AUTH_URL}>
+                    <button className="login-btn">Login with Spotify</button>
+                </a>
+            </div>
+        </div>
     );
 }
 
