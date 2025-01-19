@@ -1,32 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
-const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${import.meta.env.VITE_SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(import.meta.env.VITE_REDIRECT_URI)}&scope=user-read-private%20user-read-email%20user-top-read`;
-
 function App() {
-    return (
-        <div className="vinyl-container">
-            {/* Spinning Vinyl */}
-            <div className="vinyl-wrapper">
-                <img
-                    src="./img/vinyl.png"
-                    alt="Vinyl Record"
-                    className="vinyl"
-                />
-            </div>
+    const [loading, setLoading] = useState(true);
 
-            {/* Content */}
-            <div className="content">
-                <h1 className="title">
-                    <span className="highlight">Spotify Dashboard</span>
-                </h1>
-                <p className="subtitle">
-                    A better version of spotify wrapped
-                </p>
-                <a href={AUTH_URL}>
-                    <button className="login-btn">Login with Spotify</button>
-                </a>
-            </div>
+    useEffect(() => {
+        // Simulate loading animation duration
+        const timer = setTimeout(() => setLoading(false), 3000); // 3 seconds
+        return () => clearTimeout(timer);
+    }, []);
+
+    return (
+        <div>
+            {/* Loading Animation */}
+            {loading && (
+                <div className="loading-screen">
+                    <div className="logo-animation">
+                        <img src="./img/logo.png" alt="Logo" className="logo" />
+                    </div>
+                </div>
+            )}
+
+            {/* Main App Content */}
+            {!loading && (
+                <div className="vinyl-container">
+                    <div className="vinyl-wrapper">
+                        <img
+                            src="./img/vinyl.png"
+                            alt="Vinyl Record"
+                            className="vinyl"
+                        />
+                    </div>
+                    <div className="content">
+                        <h1 className="title">
+                            <span className="highlight">Spotify Dashboard</span>
+                        </h1>
+                        <p className="subtitle">
+                        </p>
+                        <a href="#">
+                            <button className="login-btn">Login with Spotify</button>
+                        </a>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
