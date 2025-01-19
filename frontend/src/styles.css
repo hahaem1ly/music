@@ -83,6 +83,7 @@ body {
 .highlight {
   font-family: "Raleway", sans-serif; /* Match title font */
   font-weight: 700;
+  font-size: 4rem; /* Matches the title size */
   background: linear-gradient(
     90deg,
     #ff7eb3,
@@ -91,9 +92,23 @@ body {
     #17a743,
     #4bc0c8
   );
+  background-size: 300%; /* Makes the gradient larger for smooth movement */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientMove 3s infinite alternate;
+  animation: gradientAnimation 8s infinite ease-in-out; /* Smooth infinite animation */
+}
+
+/* Gradient Animation Keyframes */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .login-btn {
