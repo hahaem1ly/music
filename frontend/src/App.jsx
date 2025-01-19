@@ -18,10 +18,10 @@ function App() {
             {/* Content */}
             <div className="content">
                 <h1 className="title">
-                    Discover Your <span className="highlight">Music</span>
+                    <span className="highlight">Spotify Dashboard</span>
                 </h1>
                 <p className="subtitle">
-                    Dive into your Spotify stats and favorite tracks.
+                    A better version of spotify wrapped
                 </p>
                 <a href={AUTH_URL}>
                     <button className="login-btn">Login with Spotify</button>
