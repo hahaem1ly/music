@@ -4,13 +4,15 @@
   "description": "this is my priejct tesitng out spotify web api",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.18.0",
     "jest": "^29.7.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17"
